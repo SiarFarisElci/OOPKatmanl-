@@ -1,0 +1,90 @@
+﻿@model ProductVM
+
+@{
+    ViewData["Title"] = "AddProduct";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h1>AddProduct</h1>
+
+
+@using (Html.BeginForm("AddProduct", "Product", FormMethod.Post, new { enctype = "multipart/form-data" }))
+{
+    <div class="row">
+        <div class="col-sm-12">
+            <section class="panel">
+                <header class="panel-heading">
+                    Ürün Ekleme Sayfası
+                </header>
+               
+                <div class="panel-body">
+
+                    <div class="form-group">
+                        <label class="col-sm-2"> Urun Ismi</label>
+                        <div class="col-sm-10">
+                            @Html.TextBoxFor(x => x.Product.Name, new { @class = "form-control genislik" })
+                            @Html.ValidationMessageFor(x=> x.Product.Name)
+                        </div>
+                    </div>
+
+                    <br /> <br />
+
+
+                    <div class="form-group">
+                        <label class="col-sm-2">Fiyat</label>
+                        <div class="col-sm-10">
+                            @Html.TextBoxFor(x => x.Product.Price, new { @class = "form-control genislik" })
+                            @Html.ValidationMessageFor(x=> x.Product.Price)
+                        </div>
+                    </div>
+
+                    <br /> <br />
+
+
+                    <div class="form-group">
+                        <label class="col-sm-2">Stok</label>
+                        <div class="col-sm-10">
+                            @Html.TextBoxFor(x => x.Product.Stock, new { @class = "form-control genislik" })
+                            @Html.ValidationMessageFor(x=> x.Product.Stock)
+                        </div>
+                    </div>
+
+                    <br /> <br />
+
+
+                    <div class="form-group">
+                        <label class="col-sm-2">Kategori</label>
+                        <div class="col-sm-10">
+                            @Html.DropDownListFor(x => x.Product.CategoryID, new SelectList(Model.Categories, "ID", "CategoryName"), "Lutfen seciniz", new { @class = "form-control genislik" })
+                        </div>
+                    </div>
+
+                    <br /> <br />
+
+
+     
+
+
+
+                    <div class="form-group">
+                        <label class="col-sm-2">İşlem : </label>
+                        <div class="col-sm-10">
+                            <button class="btn btn-primary">Ekle</button>
+                        </div>
+                    </div>
+
+
+
+
+
+
+
+
+                </div>
+
+
+            </section>
+        </div>
+    </div>
+}
+

@@ -1,0 +1,55 @@
+﻿@model CustomerVM
+
+@{
+    ViewData["Title"] = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+
+
+@if (Model.Customers.Count == 0)
+{
+    <div>
+        Henuz hicbir urun eklenmemiş.. Customer eklenmek icin <a asp-action="AddCustomer" asp-controller="Customer"> Tıklayınız </a>
+    </div>
+
+}
+else
+{
+    <div class="card card-header">
+        <div class="card card-body">
+            <table class="table table-hover">
+                <thead>
+                    <tr>
+                        <th>Name</th>
+                        <th>Sehir</th>
+                        <th>Meslek</th>
+                      
+                        <th>Durum</th>
+
+                        <th colspan="2">  Islemler</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    @foreach (Customer item in Model.Customers)
+                    {
+                        <tr>
+                            <th>@item.Name</th>
+                            <th>@item.Ctiy</th>
+                            <th>@item.Job.Name</th>
+                            <th>@item.Status</th>
+                          
+
+                        
+                            <th><a asp-action="UpdateCustomer" asp-controller="Customer" asp-route-id="@item.ID" class="btn btn-warning"> Guncelle </a></th>
+                            <th><a asp-action="DeleteCustomer" asp-controller="Customer" asp-route-id="@item.ID" class="btn btn-danger"> Sil </a></th>
+                        </tr>
+                    }
+
+                </tbody>
+            </table>
+        </div>
+    </div>
+}
+
+

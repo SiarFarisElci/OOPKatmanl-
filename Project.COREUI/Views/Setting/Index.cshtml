@@ -1,0 +1,30 @@
+﻿@model UserEditVM
+
+@{
+    ViewData["Title"] = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h1>Profil Bilgileri Guncelleme sayfası</h1>
+
+<form method="post">
+    @Html.Label("Isım");
+    <input type="text" asp-for="FirstName" class="form-control" />
+    <br />
+    @Html.Label("SoyIsım");
+    <input type="text" asp-for="LastName" class="form-control" />
+    <br />
+    @Html.Label("Gender");
+    <input type="text" asp-for="Gender" class="form-control" />
+    <br />
+    @Html.Label("Mai");
+    <input type="text" asp-for="Email" class="form-control" />
+    <br />
+    @Html.Label("Sifre");
+    <input type="password" asp-for="Password" class="form-control" />
+    <br />
+    @Html.Label("Sifre Tekrar");
+    <input type="password" asp-for="ConfirmPassword" class="form-control" />
+    <br />
+    <button class="btn btn-warning"> Değiştir</button>
+        </form>
